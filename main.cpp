@@ -5,7 +5,7 @@ using namespace std;
 
 
 class Video {
-    protected: 
+    public: 
         // atributos
         int id, duracion, calificacion;
         string genero, nombre;
@@ -47,7 +47,7 @@ class Video {
             return genero;
         }
         int getCalificacion(){
-            return calificacion
+            return calificacion;
         }
 
         //getters
@@ -79,32 +79,62 @@ class Video {
             cout<<"genero: "<<genero<<endl;
             cout<<"calificacion: "<<calificacion<<endl;
         }
+
+
 };
 
-int menu() {
-    // Se declara la variable de las opciones
-    int opcion = 0;
+class Serie : public Video{
+    public:
+        int episodios, temporada;
+        string titulo_Ep;
 
-    // Se despliega el menu de opciones
-    cout << "\n\n•••••••••••••••••••••••••••••••••••" <<
-		"\nMenu de opciones" <<
-		"\n1)  Consultar pelicula" <<
-		"\n2)  Consultar serie" <<
-		"\n3)  Calificar pelicula" <<
-		"\n4)  Calificar serie" <<
-		"\n0) Salir del programa" <<
-		"\nIntroduce la opción que desea desplegar: ";
 
-	// Se pide al usuario que introduzca un numero
-    cin >> opcion;
+        //constructor
 
-	cout << "•••••••••••••••••••••••••••••••••••\n\n" << endl;
+        Serie(int _id, int _duracion, int _calificacion, string _genero, string _nombre ,int _episodios, int _temporada, string _titulo_Ep){
+            Video( _id,  _duracion,  _calificacion,  _genero,  _nombre);
+            episodios = _episodios;
+            temporada = _temporada;
+            titulo_Ep = _titulo_Ep;
+        }
 
-    // Regresar el valor introducido
-    return opcion;
-}
+        //setters
 
-int main() {
-    menu();
-    return 0;
-}
+        void setEpisodios(int _episodios){
+            episodios = _episodios; 
+        }
+
+        void setTemporada(int _temporada){
+            temporada = _temporada; 
+        }
+
+        void setTituloEp(int _titulo_Ep){
+            
+        }
+
+        //getters
+
+        int getEpisodios(){
+            return episodios;
+        }
+
+        int getTemporada(){
+            return temporada;
+        }
+
+        string getTituloEp(){
+            return titulo_Ep;
+        }
+
+
+};
+
+class Pelicula:public Video{
+    public:
+
+        Pelicula(int _id, int _duracion, int _calificacion, string _genero, string _nombre){
+            Video( _id,  _duracion,  _calificacion,  _genero,  _nombre);
+        }
+
+
+};
