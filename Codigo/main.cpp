@@ -1,9 +1,8 @@
-#include <iostream>
-#include <string>
-#include "Video.cpp"
-#include "Pelicula.cpp"
-#include "Serie.cpp"
-using namespace std;
+#include "Pelicula.hpp"
+#include "Serie.hpp"
+
+Pelicula pelicula1 = Pelicula(0, 150, 3, "Drama", "nombre1");
+Pelicula pelicula1 = Pelicula(1, 230, 4, "Acción", "nombre2");
 
 void consultarPelicula() {
     int id = 0;
@@ -16,7 +15,6 @@ void consultarSerie() {
     int id = 0;
     cout << "Dame el id de la serie:"<<endl;
     cin>>id;
-
 }
 
 void menu() {
@@ -25,7 +23,7 @@ void menu() {
 
     do {
         // Se despliega el menu de opciones
-        cout << "\n\n•••••••••••••••••••••••••••••••••••" <<
+        std::cout << "\n\n•••••••••••••••••••••••••••••••••••" <<
             "\nMenu de opciones" <<
             "\n1)  Consultar pelicula" <<
             "\n2)  Consultar serie" <<
@@ -33,13 +31,13 @@ void menu() {
             "\nIntroduce la opción que desea desplegar: ";
 
         // Se pide al usuario que introduzca un numero
-        cin >> opcion;
+        std::cin >> opcion;
 
-        cout << "•••••••••••••••••••••••••••••••••••\n\n" << endl;
+        std::cout << "•••••••••••••••••••••••••••••••••••\n\n" << std::endl;
 
         switch(opcion) {
             case 0: { // Opcion para salir
-                cout << endl << "Gracias por usar el programa!\n";
+                std::cout << std::endl << "Gracias por usar el programa!\n";
                 break;
             }
             case 1: {
@@ -51,7 +49,7 @@ void menu() {
                 break;
             }
             default: { // Ninguna de las anteriores
-				cout << endl << "Opcion invalida" << endl;
+				std::cout << std::endl << "Opcion invalida" << std::endl;
 				break;
 			}
         }
