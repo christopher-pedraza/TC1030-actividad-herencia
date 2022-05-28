@@ -20,7 +20,7 @@ class Serie : public Video {
         void setTituloEp(string _titulo_Ep, int _index);
 
         // Getters
-        int getEpisodios();
+        int getCantidadEpisodios();
         int getTemporada();
         string getTituloEp(int _index);
 };
