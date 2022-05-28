@@ -2,16 +2,18 @@
 #include "Serie.hpp"
 
 Pelicula pelicula1 = Pelicula(1, 120, 4, "Accion", "Piratas del Caribe");
-Pelicula pelicula1 = Pelicula(2, 90, 2, "Drama", "Doraemon");
+Pelicula pelicula2 = Pelicula(2, 90, 2, "Drama", "Doraemon");
 
 Serie serie1 = Serie(1, "Moonknight", 5, 1, 2, 150, 3, "Accion", "Episodio I");
-Serie serie1 = Serie(2, "SpyXFamily", 12, 1, 1, 240, 4, "Misterio", "Episodio I");
-Serie serie1 = Serie(3, "Gambito de dama", 12, 1, 1, 190, 5, "Drama", "Episodio I");
+Serie serie2 = Serie(2, "SpyXFamily", 12, 1, 1, 240, 4, "Misterio", "Episodio I");
+Serie serie3 = Serie(3, "Gambito de dama", 12, 1, 1, 190, 5, "Drama", "Episodio I");
 
 void consultarPelicula() {
     int id = 0;
     std::cout << "Introduce el ID de la pelicula:" << std::endl;
     std::cin >> id;
+
+    
     
 }
 
