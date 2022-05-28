@@ -1,20 +1,24 @@
 #include "Pelicula.hpp"
 #include "Serie.hpp"
 
-Pelicula pelicula1 = Pelicula(0, 150, 3, "Drama", "nombre1");
-Pelicula pelicula1 = Pelicula(1, 230, 4, "Acción", "nombre2");
+Pelicula pelicula1 = Pelicula(1, 120, 4, "Accion", "Piratas del Caribe");
+Pelicula pelicula1 = Pelicula(2, 90, 2, "Drama", "Doraemon");
+
+Serie serie1 = Serie(1, "Moonknight", 5, 1, 2, 150, 3, "Accion", "Episodio I");
+Serie serie1 = Serie(2, "SpyXFamily", 12, 1, 1, 240, 4, "Misterio", "Episodio I");
+Serie serie1 = Serie(3, "Gambito de dama", 12, 1, 1, 190, 5, "Drama", "Episodio I");
 
 void consultarPelicula() {
     int id = 0;
-    cout << "Dame el id de la pelicula:"<<endl;
-    cin>>id;
+    std::cout << "Dame el id de la pelicula:" << std::endl;
+    std::cin >> id;
     
 }
 
 void consultarSerie() {
     int id = 0;
-    cout << "Dame el id de la serie:"<<endl;
-    cin>>id;
+    std::cout << "Dame el id de la serie:" << std::endl;
+    std::cin>>id;
 }
 
 void menu() {
@@ -59,22 +63,18 @@ void menu() {
 int main() {
 
     // Instanciar objetos
-
-    Pelicula P1 = Pelicula(1,120,4, "accion", "piratas del caribe");
-    Pelicula P2 = Pelicula(2,90,2, "aventura", "doraemon");
+/*
     P1.mostrarVideo();
-    cout<<endl;
+    std::cout << std::endl;
     P2.mostrarVideo();
-    cout<<endl;
-    Serie S1 = Serie(5,1,1,120,4,"Accion","Moonknight");
-    Serie S2 = Serie(12,1,2,240,3,"Anime","SpyXFamily");
-    Serie S3 = Serie(7,1,3,480,5,"Drama","Gambito de dama");
-    S1.mostrarVideo();
-    cout<<endl;
-    S2.mostrarVideo();
-    cout<<endl;
-    S3.mostrarVideo();
+    std::cout << std::endl;
 
+    S1.mostrarVideo();
+    std::cout << std::endl;
+    S2.mostrarVideo();
+    std::cout << std::endl;
+    S3.mostrarVideo();
+*/
 
 
     menu(); // Se mantiene en ciclo en esta funcion
