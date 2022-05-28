@@ -1,4 +1,5 @@
 #include "Serie.hpp"
+#include <iostream>
 
 Serie::Serie(int _idSerie, std::string _nombre, int _cantidadEpisodios, int _idEpisodio, int _temporada, int _duracion, int _calificacion, std::string _genero, std::string _nombreEpisodio) : Video(_idEpisodio, _duracion, _calificacion, _genero, _nombreEpisodio) {
     episodios[0] = Video(_idEpisodio, _duracion, _calificacion, _genero, _nombreEpisodio);
@@ -61,5 +62,16 @@ void Serie::agregarEpisodio(int _id, int _duracion, int _calificacion, std::stri
     if (cantidadEpisodios < 10) {
         episodios[cantidadEpisodios] = _episodio;
         cantidadEpisodios++;
+    }
+
+}
+
+void Serie::mostrarEpisodios(){
+    for(int i = 0; i < cantidadEpisodios; i++){
+         
+         episodios[i].mostrarVideo();
+         std::cout<<std::endl;
+
+
     }
 }
