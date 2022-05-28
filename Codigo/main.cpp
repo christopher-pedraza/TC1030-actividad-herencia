@@ -10,14 +10,14 @@ Serie serie1 = Serie(3, "Gambito de dama", 12, 1, 1, 190, 5, "Drama", "Episodio 
 
 void consultarPelicula() {
     int id = 0;
-    std::cout << "Dame el id de la pelicula:" << std::endl;
+    std::cout << "Introduce el ID de la pelicula:" << std::endl;
     std::cin >> id;
     
 }
 
 void consultarSerie() {
     int id = 0;
-    std::cout << "Dame el id de la serie:" << std::endl;
+    std::cout << "Introduce el id de la serie:" << std::endl;
     std::cin>>id;
 }
 
