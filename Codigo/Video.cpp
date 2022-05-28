@@ -8,7 +8,7 @@ Video::Video() {
     nombre = "";
 }
 
-Video::Video(int _id, int _duracion, int _calificacion, string _genero, string _nombre) {
+Video::Video(int _id, int _duracion, int _calificacion, std::string _genero, std::string _nombre) {
     id = _id;
     duracion = _duracion;
     calificacion = _calificacion;
@@ -21,7 +21,7 @@ int Video::getID() {
     return id;
 }
 
-string Video::getNombre() {
+std::string Video::getNombre() {
     return nombre;
 }
 
@@ -29,7 +29,7 @@ int Video::getDuracion() {
     return duracion;
 }
 
-string Video::getGenero() {
+std::string Video::getGenero() {
     return genero;
 }
 
@@ -42,7 +42,7 @@ void Video::setID(int _id) {
     id = _id;
 }
 
-void Video::setNombre(string _nombre) {
+void Video::setNombre(std::string _nombre) {
     nombre = _nombre;
 }
 
@@ -50,7 +50,7 @@ void Video::setDuracion(int _duracion) {
     duracion = _duracion;
 }
 
-void Video::setGenero(string _genero) {
+void Video::setGenero(std::string _genero) {
     genero = _genero;
 }
 
@@ -59,9 +59,9 @@ void Video::setCalificacion(int _calificacion) {
 }
 
 void Video::mostrarVideo() {
-    cout << "id: " << id << endl;
-    cout << "nombre: " << nombre << endl;
-    cout << "duracion: " << duracion << endl;
-    cout << "genero: " <<genero << endl;
-    cout << "calificacion: " <<calificacion << endl;
+    std::cout << "id: " << id << std::endl;
+    std::cout << "nombre: " << nombre << std::endl;
+    std::cout << "duracion: " << duracion << std::endl;
+    std::cout << "genero: " <<genero << std::endl;
+    std::cout << "calificacion: " <<calificacion << std::endl;
 }
