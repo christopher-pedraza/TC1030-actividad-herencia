@@ -138,3 +138,31 @@ class Pelicula:public Video{
 
 
 };
+
+int menu() {
+    // Se declara la variable de las opciones
+    int opcion = 0;
+
+    // Se despliega el menu de opciones
+    cout << "\n\n•••••••••••••••••••••••••••••••••••" <<
+		"\nMenu de opciones" <<
+		"\n1)  Consultar pelicula" <<
+		"\n2)  Consultar serie" <<
+		"\n3)  Calificar pelicula" <<
+		"\n4)  Calificar serie" <<
+		"\n0) Salir del programa" <<
+		"\nIntroduce la opción que desea desplegar: ";
+
+	// Se pide al usuario que introduzca un numero
+    cin >> opcion;
+
+	cout << "•••••••••••••••••••••••••••••••••••\n\n" << endl;
+
+    // Regresar el valor introducido
+    return opcion;
+}
+
+int main() {
+    menu();
+    return 0;
+} 
