@@ -2,11 +2,10 @@
 #include <string>
 using namespace std;
 
-
-
+// Clase base
 class Video {
     public: 
-        // atributos
+        // Atributos
         int id, duracion, calificacion;
         string genero, nombre;
 
