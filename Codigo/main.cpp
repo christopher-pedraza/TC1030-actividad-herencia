@@ -2,6 +2,13 @@
 #include <string>
 using namespace std;
 
+void consultarPelicula() {
+    cout << "1";
+}
+
+void consultarSerie() {
+    cout << "2";
+}
 
 void menu() {
     // Se declara la variable de las opciones
@@ -40,14 +47,6 @@ void menu() {
 			}
         }
     } while (opcion != 0);
-}
-
-void consultarPelicula() {
-    cout << "1";
-}
-
-void consultarSerie() {
-    cout << "2";
 }
 
 int main() {
