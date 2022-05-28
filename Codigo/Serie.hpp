@@ -2,7 +2,7 @@
 #define Serie_hpp
 
 #include "Video.hpp"
-#include <string>
+
 
 class Serie : public Video {
     private:
@@ -33,6 +33,7 @@ class Serie : public Video {
         // Adiocionales
         void agregarEpisodio(Video _episodio);
         void agregarEpisodio(int _id, int _duracion, int _calificacion, std::string _genero, std::string _nombre);
+        void mostrarEpisodios();
 };
 
 #endif /* Serie_hpp */
