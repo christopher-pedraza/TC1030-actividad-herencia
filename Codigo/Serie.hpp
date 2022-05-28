@@ -9,7 +9,7 @@ class Serie : public Video {
         // Atributos
         int cantidadEpisodios, temporada, idSerie;
         std::string nombreSerie;
-        Video episodios[10];
+        Video episodios[100];
 
     public:
         // Metodos

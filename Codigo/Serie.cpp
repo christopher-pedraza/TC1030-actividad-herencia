@@ -67,7 +67,7 @@ void Serie::agregarEpisodio(int _id, int _duracion, int _calificacion, std::stri
 }
 
 void Serie::mostrarEpisodios(){
-    for(int i = 0; i < cantidadEpisodios;++i){
+    for(int i = 0; i < cantidadEpisodios; i++){
          
          episodios[i].mostrarVideo();
          std::cout<<std::endl;
