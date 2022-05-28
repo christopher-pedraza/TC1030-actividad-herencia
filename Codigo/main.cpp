@@ -84,9 +84,7 @@ void menu() {
 }
 
 int main() {
-
     serie1.agregarEpisodio(2, 40, 4, "Accion", "En la tumba");
-
 
     menu(); // Se mantiene en ciclo en esta funcion
     return 0;
