@@ -9,7 +9,8 @@ class Serie : public Video {
         // Atributos
         int cantidadEpisodios, temporada, idSerie;
         std::string nombreSerie;
-        Video episodios[100];
+        std::vector<Video> episodios;
+        //Video episodios[100];
 
     public:
         // Metodos
