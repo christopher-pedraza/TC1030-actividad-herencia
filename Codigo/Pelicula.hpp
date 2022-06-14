@@ -8,6 +8,9 @@ class Pelicula : public Video {
         // Metodos
         // Constructor
         Pelicula(int _id, int _duracion, int _calificacion, std::string _genero, std::string _nombre);
+        
+        // Adicionales
+        void imprimir();
 };
 
 #endif /* Pelicula_hpp */

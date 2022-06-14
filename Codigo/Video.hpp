@@ -31,6 +31,9 @@ class Video {
         void setGenero(std::string _genero);
         void setCalificacion(int _calificacion);
         void mostrarVideo();
+
+        // Metodos adicionales
+        virtual void imprimir();
 };
 
 #endif /* Video_hpp */

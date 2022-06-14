@@ -80,3 +80,7 @@ void Serie::mostrarEpisodios(){
          std::cout<<std::endl;
     }
 }
+
+void Serie::imprimir() {
+    
+}
