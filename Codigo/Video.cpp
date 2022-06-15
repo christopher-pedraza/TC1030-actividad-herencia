@@ -66,4 +66,8 @@ void Video::mostrarVideo() {
     std::cout << "calificacion: " <<calificacion << std::endl;
 }
 
-void Video::imprimir(int _calificacion) {}
+void Video::imprimir(int _calificacion) {
+    if (calificacion == _calificacion) {
+        mostrarVideo();
+    }
+}

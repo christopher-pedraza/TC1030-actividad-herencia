@@ -3,6 +3,7 @@
 
 std::vector<Pelicula> peliculas;
 std::vector<Serie> series;
+std::vector<Video> videos;
 
 void consultarPelicula() {
     int id = 0;
@@ -29,6 +30,36 @@ void consultarSerie() {
     }
 }
 
+void consultarSerieCalificacion() {
+    int calificacion = 0;
+    std::cout << "Introduce la calificacion deseada para consultar:" << std::endl;
+    std::cin >> calificacion;
+
+    for (int i = 0; i < series.size(); i++) {
+        series[i].imprimir(calificacion);
+    }
+}
+
+void consultarPeliculaCalificacion() {
+    int calificacion = 0;
+    std::cout << "Introduce la calificacion deseada para consultar:" << std::endl;
+    std::cin >> calificacion;
+
+    for (int i = 0; i < peliculas.size(); i++) {
+        peliculas[i].imprimir(calificacion);
+    }
+}
+
+void consultarVideoCalificacion() {
+    int calificacion = 0;
+    std::cout << "Introduce la calificacion deseada para consultar:" << std::endl;
+    std::cin >> calificacion;
+
+    for (int i = 0; i < videos.size(); i++) {
+        videos[i].imprimir(calificacion);
+    }
+}
+
 void agregarVideos() {
     Pelicula pelicula1 = Pelicula(1, 120, 4, "Accion", "Piratas del Caribe");
     Pelicula pelicula2 = Pelicula(2, 90, 2, "Drama", "Doraemon");
@@ -37,11 +68,14 @@ void agregarVideos() {
 
     Serie serie1 = Serie(1, "Moonknight", 1, 1, 2, 40, 3, "Accion", "Episodio I M");
     serie1.agregarEpisodio(2, 40, 4, "Accion", "En la tumba");
-    Serie serie2 = Serie(2, "SpyXFamily", 1, 1, 1, 20, 4, "Misterio", "Episodio I S");
+    Serie serie2 = Serie(2, "SpyXFamily", 1, 1, 1, 20, 5, "Misterio", "Episodio I S");
     Serie serie3 = Serie(3, "Gambito de dama", 1, 1, 1, 60, 5, "Drama", "Episodio I G");
     series.push_back(serie1);
     series.push_back(serie2);
     series.push_back(serie3);
+
+    Video video1 = Video(1, 20, 2, "Terror", "Básicos de Electromagnetismo");
+    videos.push_back(video1);
 }
 
 void menu() {
@@ -54,6 +88,9 @@ void menu() {
             "\nMenu de opciones" <<
             "\n1)  Consultar pelicula" <<
             "\n2)  Consultar serie" <<
+            "\n3)  Consultar serie por calificación" <<
+            "\n4)  Consultar película por calificación" <<
+            "\n5)  Consultar video por calificación" <<
             "\n0) Salir del programa" <<
             "\nIntroduce la opción que desea desplegar: ";
 
@@ -75,6 +112,18 @@ void menu() {
                 consultarSerie();
                 break;
             }
+            case 3: {
+                consultarSerieCalificacion();
+                break;
+            }
+            case 4: {
+                consultarPeliculaCalificacion();
+                break;
+            }
+            case 5: {
+                consultarVideoCalificacion();
+                break;
+            }       
             default: { // Ninguna de las anteriores
 				std::cout << std::endl << "Opcion invalida" << std::endl;
 				break;
