@@ -75,12 +75,17 @@ void Serie::agregarEpisodio(int _id, int _duracion, int _calificacion, std::stri
 }
 
 void Serie::mostrarEpisodios(){
-    for(int i = 0; i < cantidadEpisodios; i++){
-         episodios[i].mostrarVideo();
-         std::cout<<std::endl;
+    for(int i = 0; i < cantidadEpisodios; i++) {
+        episodios[i].mostrarVideo();
+        std::cout<<std::endl;
     }
 }
 
-void Serie::imprimir() {
-    
+void Serie::imprimir(int _calificacion) {
+    for(int i = 0; i < cantidadEpisodios; i++) {
+        if (episodios[i].getCalificacion() == _calificacion) {
+            episodios[i].mostrarVideo();
+            std::cout<<std::endl;
+        }
+    }
 }

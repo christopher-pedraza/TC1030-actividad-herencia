@@ -10,7 +10,7 @@ class Pelicula : public Video {
         Pelicula(int _id, int _duracion, int _calificacion, std::string _genero, std::string _nombre);
         
         // Adicionales
-        void imprimir();
+        void imprimir(int _calificacion);
 };
 
 #endif /* Pelicula_hpp */

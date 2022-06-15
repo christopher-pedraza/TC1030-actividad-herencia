@@ -6,7 +6,7 @@
 #include <vector>
 
 class Video {
-    private: 
+    protected: 
         // Atributos
         int id, duracion, calificacion;
         std::string genero, nombre;
@@ -33,7 +33,7 @@ class Video {
         void mostrarVideo();
 
         // Metodos adicionales
-        virtual void imprimir();
+        virtual void imprimir(int _calificacion);
 };
 
 #endif /* Video_hpp */
