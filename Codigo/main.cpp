@@ -1,47 +1,47 @@
 #include "Pelicula.hpp"
 #include "Serie.hpp"
 
-Pelicula pelicula1 = Pelicula(1, 120, 4, "Accion", "Piratas del Caribe");
-Pelicula pelicula2 = Pelicula(2, 90, 2, "Drama", "Doraemon");
-
-Serie serie1 = Serie(1, "Moonknight", 1, 1, 2, 40, 3, "Accion", "Episodio I M");
-Serie serie2 = Serie(2, "SpyXFamily", 1, 1, 1, 20, 4, "Misterio", "Episodio I S");
-Serie serie3 = Serie(3, "Gambito de dama", 1, 1, 1, 60, 5, "Drama", "Episodio I G");
+std::vector<Pelicula> peliculas;
+std::vector<Serie> series;
 
 void consultarPelicula() {
     int id = 0;
     std::cout << "Introduce el ID de la pelicula:" << std::endl;
     std::cin >> id;
-    if (id == 1){
-        pelicula1.mostrarVideo();
+    if (id <= peliculas.size() && id > 0) {
+        peliculas[id-1].mostrarVideo();
         std::cout << std::endl;
+    } else {
+        std::cout << "ID inválido" << std::endl;
     }
-    if (id == 2){
-        pelicula2.mostrarVideo();
-        std::cout << std::endl;
-    }
-    
 }
 
 void consultarSerie() {
     int id = 0;
     std::cout << "Introduce el id de la serie:" << std::endl;
-    std::cin>>id;
+    std::cin >> id;
 
-    if (id == 1) {
-        serie1.mostrarEpisodios();
+    if (id <= series.size() && id > 0) {
+        series[id-1].mostrarEpisodios();
         std::cout << std::endl;
+    } else {
+        std::cout << "ID inválido" << std::endl;
     }
-    else if (id == 2) {
-        serie2.mostrarEpisodios();
-        std::cout << std::endl;
-    }
-    else if (id == 3) {
-        serie3.mostrarEpisodios();
-        std::cout << std::endl;
-    }
-    
-    
+}
+
+void agregarVideos() {
+    Pelicula pelicula1 = Pelicula(1, 120, 4, "Accion", "Piratas del Caribe");
+    Pelicula pelicula2 = Pelicula(2, 90, 2, "Drama", "Doraemon");
+    peliculas.push_back(pelicula1);
+    peliculas.push_back(pelicula2);
+
+    Serie serie1 = Serie(1, "Moonknight", 1, 1, 2, 40, 3, "Accion", "Episodio I M");
+    serie1.agregarEpisodio(2, 40, 4, "Accion", "En la tumba");
+    Serie serie2 = Serie(2, "SpyXFamily", 1, 1, 1, 20, 4, "Misterio", "Episodio I S");
+    Serie serie3 = Serie(3, "Gambito de dama", 1, 1, 1, 60, 5, "Drama", "Episodio I G");
+    series.push_back(serie1);
+    series.push_back(serie2);
+    series.push_back(serie3);
 }
 
 void menu() {
@@ -84,7 +84,7 @@ void menu() {
 }
 
 int main() {
-    serie1.agregarEpisodio(2, 40, 4, "Accion", "En la tumba");
+    agregarVideos();
 
     menu(); // Se mantiene en ciclo en esta funcion
     return 0;

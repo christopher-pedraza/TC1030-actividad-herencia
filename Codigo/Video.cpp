@@ -65,3 +65,5 @@ void Video::mostrarVideo() {
     std::cout << "genero: " <<genero << std::endl;
     std::cout << "calificacion: " <<calificacion << std::endl;
 }
+
+void Video::imprimir(int _calificacion) {}
