@@ -4,6 +4,7 @@
 #include "Video.hpp"
 
 class Pelicula : public Video {
+
     public:
         // Metodos
         // Constructor
@@ -11,6 +12,8 @@ class Pelicula : public Video {
         
         // Adicionales
         void imprimir(int _calificacion);
+
+
 };
 
 #endif /* Pelicula_hpp */

@@ -1,5 +1,7 @@
 #include "Pelicula.hpp"
 #include "Serie.hpp"
+#include <fstream>
+#include <iostream>
 
 std::vector<Pelicula> peliculas;
 std::vector<Serie> series;
@@ -78,6 +80,32 @@ void agregarVideos() {
     videos.push_back(video1);
 }
 
+void storePeliculas(std::string Filename, std::vector<Pelicula> peliculas){
+
+    std::vector<Pelicula> data = peliculas;
+    std::ofstream File;
+    File.open(Filename.c_str(),std::ios::app);
+    for (int i = 0;data.size() > i;i++){
+        File.write((char*)& data[i],sizeof(data[i]));
+
+    }
+    File.close();
+}
+
+void readPeliculas(std::string Filename){
+
+    std::ifstream File;
+    File.open(Filename.c_str(),std::ios::in);
+    while(!File.eof()){
+        Pelicula temp(0,0,0," "," ");
+        File.read((char*)& temp,sizeof(temp));
+        peliculas.push_back(temp);
+    }
+    File.close();
+
+}
+
+
 void menu() {
     // Se declara la variable de las opciones
     int opcion = -1;
@@ -133,8 +161,11 @@ void menu() {
 }
 
 int main() {
-    agregarVideos();
+    //agregarVideos();
 
-    menu(); // Se mantiene en ciclo en esta funcion
+    //storePeliculas("peliculas.txt", peliculas);
+    readPeliculas("peliculas.txt");
+    peliculas[1].mostrarVideo();
+    //menu(); // Se mantiene en ciclo en esta funcion
     return 0;
 } 
