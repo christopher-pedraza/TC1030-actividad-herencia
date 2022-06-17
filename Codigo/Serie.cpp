@@ -1,10 +1,19 @@
 #include "Serie.hpp"
 #include <iostream>
 
-Serie::Serie(int _idSerie, std::string _nombre, int _cantidadEpisodios, int _idEpisodio, int _temporada, int _duracion, int _calificacion, std::string _genero, std::string _nombreEpisodio) : Video(_idEpisodio, _duracion, _calificacion, _genero, _nombreEpisodio) {
-    episodios.push_back(Video(_idEpisodio, _duracion, _calificacion, _genero, _nombreEpisodio));
+
+
+Serie::Serie(){
+    idSerie  = 0;
+    nombreSerie = "titulo serie";
+    cantidadEpisodios = 0;
+    duracion = 0;
+    calificacion = 0;
+    genero = "genero";
+}
+
+Serie::Serie(int _idSerie, std::string _nombre, int _cantidadEpisodios, int _duracion, int _calificacion, std::string _genero):Video(_idSerie, _duracion, _calificacion, _genero, _nombre){
     cantidadEpisodios = _cantidadEpisodios;
-    temporada = _temporada;
     idSerie = _idSerie;
     nombre = _nombre;
 }
@@ -18,17 +27,13 @@ void Serie::setEpisodios(int _episodios) {
     cantidadEpisodios = _episodios; 
 }
 
-void Serie::setTemporada(int _temporada) {
-    temporada = _temporada; 
-}
-
 void Serie::setNombreSerie(std::string _nombreSerie) {
     nombreSerie = _nombreSerie;
 }
 
-void Serie::setEpisodio(Video episodio, int _index) {
-    episodios[_index] = episodio;
-}
+
+
+
 
 // Getters
 int Serie::getIDSerie() {
@@ -39,26 +44,14 @@ int Serie::getCantidadEpisodios() {
     return cantidadEpisodios;
 }
 
-int Serie::getTemporada() {
-    return temporada;
-}
-
 std::string Serie::getNombreSerie() {
     return nombreSerie;
 }
 
-Video Serie::getEpisodio(int _index) {
-    return episodios[_index];
-}
 
 // Adicionales
-void Serie::agregarEpisodio(Video _episodio) {
+void Serie::agregarEpisodio(Episodio _episodio) {
     episodios.push_back(_episodio);
-    cantidadEpisodios++;
-}
-
-void Serie::agregarEpisodio(int _id, int _duracion, int _calificacion, std::string _genero, std::string _nombre) {
-    episodios.push_back(Video(_id, _duracion, _calificacion, _genero, _nombre));
     cantidadEpisodios++;
 }
 
@@ -67,9 +60,17 @@ void Serie::mostrarEpisodios() {
     std::cout<<std::endl;
     std::cout << "Episodios : " << std::endl;
     for(int i = 0; i < cantidadEpisodios; i++) {
-        episodios[i].mostrarVideo();
+        episodios[i].mostrarEpisodio();
         std::cout<<std::endl;
     }
+}
+
+void Serie::mostrarVideo() {
+    std::cout << "id: " << idSerie << std::endl;
+    std::cout << "nombre: " << nombreSerie << std::endl;
+    std::cout << "duracion: " << duracion << std::endl;
+    std::cout << "genero: " <<genero << std::endl;
+    std::cout << "calificacion: " <<calificacion << std::endl;
 }
 
 void Serie::mostrarDatosSerie() {
@@ -86,8 +87,8 @@ void Serie::imprimir(int _calificacion) {
     std::cout << "Episodios con califiación de: " << _calificacion << std::endl;
     for(int i = 0; i < cantidadEpisodios; i++) {
         if (episodios[i].getCalificacion() == _calificacion) {
-            episodios[i].mostrarVideo();
-            std::cout << std::endl;
+            episodios[i].mostrarEpisodio();
+            std::cout<<std::endl;
             contador++;
         }
     }

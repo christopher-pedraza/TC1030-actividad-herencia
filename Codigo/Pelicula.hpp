@@ -4,6 +4,7 @@
 #include "Video.hpp"
 
 class Pelicula : public Video {
+
     public:
         // Metodos
         // Constructor
