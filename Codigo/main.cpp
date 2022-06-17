@@ -7,8 +7,13 @@ std::vector<Video> videos;
 
 void consultarPelicula() {
     int id = 0;
-    std::cout << "Introduce el ID de la pelicula:" << std::endl;
+    std::cout << "Películas disponibles: " << std::endl;
+    for (int i = 1; i <= peliculas.size(); i++) {
+        std::cout << peliculas[i-1];
+    }
+    std::cout << "Introduce el id de la pelicula:" << std::endl;
     std::cin >> id;
+    
     if (id <= peliculas.size() && id > 0) {
         peliculas[id-1].mostrarVideo();
         std::cout << std::endl;
@@ -19,6 +24,10 @@ void consultarPelicula() {
 
 void consultarSerie() {
     int id = 0;
+    std::cout << "Series disponibles: " << std::endl;
+    for (int i = 1; i <= series.size(); i++) {
+        std::cout << series[i-1];
+    }
     std::cout << "Introduce el id de la serie:" << std::endl;
     std::cin >> id;
 

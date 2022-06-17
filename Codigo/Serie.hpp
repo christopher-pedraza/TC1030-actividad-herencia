@@ -33,11 +33,12 @@ class Serie : public Video {
         std::string getNombreSerie();
         Video getEpisodio(int _index);
 
-        // Adiocionales
+        // Adicionales
         void agregarEpisodio(Video _episodio);
         void agregarEpisodio(int _id, int _duracion, int _calificacion, std::string _genero, std::string _nombre);
         void mostrarEpisodios();
         void imprimir(int _calificacion);
+        friend std::ostream& operator << (std::ostream& os, const Serie& _serie);
 };
 
 #endif /* Serie_hpp */
