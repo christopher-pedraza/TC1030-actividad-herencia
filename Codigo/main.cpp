@@ -150,7 +150,7 @@ void menu() {
 
 int main() {
 
-   
+    agregarVideos();
     menu(); // Se mantiene en ciclo en esta funcion
     return 0;
 } 
