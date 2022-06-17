@@ -87,6 +87,40 @@ void agregarVideos() {
     Video video1 = Video(1, 20, 2, "Terror", "Básicos de Electromagnetismo");
     videos.push_back(video1);
 }
+void calificarPelicula() {
+    int id = 0;
+    int calificacion = 0;
+    std::cout << "Estas son las películas disponibles: " << std::endl;
+    for (int i = 1; i <= series1.size(); i++) {
+        std::cout << series1[i-1];
+    }
+    std::cout << "Introduce el id de la pelicula:" << std::endl;
+    std::cin >> id;
+    
+    if (id <= peliculas.size() && id > 0) {
+        peliculas[id-1].mostrarVideo();
+        std::cout << std::endl;
+    } else {
+        std::cout << "ID inválido" << std::endl;
+    }
+
+    std::cout << "¿Qué calificación le asignas a " << peliculas[id-1].getNombre() <<"? (de 1 a 5)" << std::endl;
+    std::cin >> calificacion;
+    peliculas[id-1].setCalificacion(calificacion);
+
+    std::cout << "Calificación guardada!" << std::endl;
+}
+
+void calificarSerie() {
+    int id = 0;
+    double calificacion = 0;
+    std::cout << "Estas son las series disponibles: " << std::endl;
+        for (int i = 1; i <= series1.size(); i++) {
+        std::cout << series1[i-1];
+    }
+    std::cout << "Introduce el id de la serie:" << std::endl;
+    std::cin >> id;
+    std::cout << std::endl;
 
     if (id <= series1.size() && id > 0) {
         series1[id-1].mostrarVideo();
