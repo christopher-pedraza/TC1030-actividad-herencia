@@ -88,6 +88,15 @@ void agregarVideos() {
     videos.push_back(video1);
 }
 
+    if (id <= series1.size() && id > 0) {
+        series1[id-1].mostrarVideo();
+        std::cout << "\n"<<"Episodios: "<<std::endl;
+        series1[id-1].mostrarEpisodios();
+        std::cout << std::endl;
+    } else {
+        std::cout << "ID inválido" << std::endl;
+    }
+}
 
 void menu() {
     // Se declara la variable de las opciones
@@ -102,7 +111,9 @@ void menu() {
             "\n3)  Consultar serie por calificación" <<
             "\n4)  Consultar película por calificación" <<
             "\n5)  Consultar video por calificación" <<
-            "\n6)  cargar archivo de datos" <<
+            "\n6)  Calificar pelicula" <<
+            "\n7)  Calificar serie" <<
+            "\n8)  cargar archivo de datos" <<
             "\n0) Salir del programa" <<
             "\nIntroduce la opción que desea desplegar: ";
 
@@ -137,6 +148,14 @@ void menu() {
                 break;
             } 
             case 6: {
+                calificarPelicula();
+                break;
+            }
+            case 7: {
+                calificarSerie();
+                break;
+            }
+            case 8: {
                 Series data;
                 std::string nombreseries,nombreepisodios;
                 std::cout<<"cual es el nombre del archivo de series?"<<std::endl;
@@ -149,6 +168,7 @@ void menu() {
                 series1 = data.getSeries();
                 break;
             }          
+
             default: { // Ninguna de las anteriores
 				std::cout << std::endl << "Opcion invalida" << std::endl;
 				break;
@@ -162,4 +182,5 @@ int main() {
     agregarVideos();
     menu(); // Se mantiene en ciclo en esta funcion
     return 0;
+
 } 
