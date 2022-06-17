@@ -59,11 +59,11 @@ void Video::setCalificacion(int _calificacion) {
 }
 
 void Video::mostrarVideo() {
-    std::cout << "id: " << id << std::endl;
-    std::cout << "nombre: " << nombre << std::endl;
-    std::cout << "duracion: " << duracion << std::endl;
-    std::cout << "genero: " <<genero << std::endl;
-    std::cout << "calificacion: " <<calificacion << std::endl;
+    std::cout << "ID: " << id << std::endl;
+    std::cout << "Nombre: " << nombre << std::endl;
+    std::cout << "Duración: " << duracion << std::endl;
+    std::cout << "Género: " << genero << std::endl;
+    std::cout << "Calificación: " << calificacion << std::endl;
 }
 
 void Video::imprimir(int _calificacion) {
