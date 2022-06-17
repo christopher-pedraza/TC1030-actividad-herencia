@@ -2,14 +2,15 @@
 #define Serie_hpp
 
 #include "Video.hpp"
-
+#include "Episodio.hpp"
 
 class Serie : public Video {
     private:
         // Atributos
-        int cantidadEpisodios, temporada, idSerie;
+        int cantidadEpisodios, idSerie;
         std::string nombreSerie;
-        std::vector<Video> episodios;
+        std::vector<Episodio> episodios;
+        double calificacionPromedio;
         //Video episodios[100];
 
         void mostrarDatosSerie();
@@ -17,7 +18,8 @@ class Serie : public Video {
     public:
         // Metodos
         // Constructor
-        Serie(int _idSerie, std::string _nombre, int _cantidadEpisodios, int _idEpisodio, int _temporada, int _duracion, int _calificacion, std::string _genero, std::string _nombreEpisodio);
+        Serie();
+        Serie(int _idSerie, std::string _nombre, int _cantidadEpisodios, int _duracion, int _calificacion, std::string _genero);
 
         // Setters
         void setIDSerie(int _idSerie);
@@ -25,6 +27,7 @@ class Serie : public Video {
         void setTemporada(int _temporada);
         void setNombreSerie(std::string _nombreSerie);
         void setEpisodio(Video _titulo_Ep, int _index);
+      
 
         // Getters
         int getIDSerie();
@@ -32,11 +35,14 @@ class Serie : public Video {
         int getTemporada();
         std::string getNombreSerie();
         Video getEpisodio(int _index);
+       
 
         // Adiocionales
-        void agregarEpisodio(Video _episodio);
+        void agregarEpisodio(Episodio _episodio);
         void agregarEpisodio(int _id, int _duracion, int _calificacion, std::string _genero, std::string _nombre);
         void mostrarEpisodios();
+        void mostrarVideo();
+
         void imprimir(int _calificacion);
 };
 

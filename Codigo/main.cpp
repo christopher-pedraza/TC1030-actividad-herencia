@@ -1,9 +1,14 @@
 #include "Pelicula.hpp"
 #include "Serie.hpp"
+#include "Series.hpp"
+#include <fstream>
+#include <iostream>
 
 std::vector<Pelicula> peliculas;
-std::vector<Serie> series;
+std::vector<Serie> series1;
 std::vector<Video> videos;
+
+
 
 void consultarPelicula() {
     int id = 0;
@@ -21,9 +26,12 @@ void consultarSerie() {
     int id = 0;
     std::cout << "Introduce el id de la serie:" << std::endl;
     std::cin >> id;
+    std::cout << std::endl;
 
-    if (id <= series.size() && id > 0) {
-        series[id-1].mostrarEpisodios();
+    if (id <= series1.size() && id > 0) {
+        series1[id-1].mostrarVideo();
+        std::cout << "\n"<<"Episodios: "<<std::endl;
+        series1[id-1].mostrarEpisodios();
         std::cout << std::endl;
     } else {
         std::cout << "ID inválido" << std::endl;
@@ -35,8 +43,8 @@ void consultarSerieCalificacion() {
     std::cout << "Introduce la calificacion deseada para consultar:" << std::endl;
     std::cin >> calificacion;
 
-    for (int i = 0; i < series.size(); i++) {
-        series[i].imprimir(calificacion);
+    for (int i = 0; i < series1.size(); i++) {
+        series1[i].imprimir(calificacion);
     }
 }
 
@@ -60,23 +68,17 @@ void consultarVideoCalificacion() {
     }
 }
 
+
 void agregarVideos() {
     Pelicula pelicula1 = Pelicula(1, 120, 4, "Accion", "Piratas del Caribe");
     Pelicula pelicula2 = Pelicula(2, 90, 2, "Drama", "Doraemon");
     peliculas.push_back(pelicula1);
     peliculas.push_back(pelicula2);
 
-    Serie serie1 = Serie(1, "Moonknight", 1, 1, 2, 40, 3, "Accion", "Episodio I M");
-    serie1.agregarEpisodio(2, 40, 4, "Accion", "En la tumba");
-    Serie serie2 = Serie(2, "SpyXFamily", 1, 1, 1, 20, 5, "Misterio", "Episodio I S");
-    Serie serie3 = Serie(3, "Gambito de dama", 1, 1, 1, 60, 5, "Drama", "Episodio I G");
-    series.push_back(serie1);
-    series.push_back(serie2);
-    series.push_back(serie3);
-
     Video video1 = Video(1, 20, 2, "Terror", "Básicos de Electromagnetismo");
     videos.push_back(video1);
 }
+
 
 void menu() {
     // Se declara la variable de las opciones
@@ -91,6 +93,7 @@ void menu() {
             "\n3)  Consultar serie por calificación" <<
             "\n4)  Consultar película por calificación" <<
             "\n5)  Consultar video por calificación" <<
+            "\n6)  cargar archivo de datos" <<
             "\n0) Salir del programa" <<
             "\nIntroduce la opción que desea desplegar: ";
 
@@ -123,7 +126,20 @@ void menu() {
             case 5: {
                 consultarVideoCalificacion();
                 break;
-            }       
+            } 
+            case 6: {
+                Series data;
+                std::string nombreseries,nombreepisodios;
+                std::cout<<"cual es el nombre del archivo de series?"<<std::endl;
+                std::cin>>nombreseries;
+                std::cout<<"cual es el nombre del archivo de episodios?"<<std::endl;
+                std::cin>>nombreepisodios;
+               
+                data.leerArchivo(nombreseries,nombreepisodios);
+
+                series1 = data.getSeries();
+                break;
+            }          
             default: { // Ninguna de las anteriores
 				std::cout << std::endl << "Opcion invalida" << std::endl;
 				break;
@@ -133,8 +149,8 @@ void menu() {
 }
 
 int main() {
-    agregarVideos();
 
+    agregarVideos();
     menu(); // Se mantiene en ciclo en esta funcion
     return 0;
 } 
