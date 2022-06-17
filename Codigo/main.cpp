@@ -92,8 +92,8 @@ void calificarPelicula() {
     int id = 0;
     int calificacion = 0;
     std::cout << "Estas son las películas disponibles: " << std::endl;
-    for (int i = 1; i <= series.size(); i++) {
-        std::cout << series[i-1];
+    for (int i = 1; i <= peliculas.size(); i++) {
+        std::cout << peliculas[i-1];
     }
     std::cout << "Introduce el id de la pelicula:" << std::endl;
     std::cin >> id;
