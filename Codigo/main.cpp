@@ -69,7 +69,15 @@ void consultarVideoCalificacion() {
 }
 
 
+void agregarVideos() {
+    Pelicula pelicula1 = Pelicula(1, 120, 4, "Accion", "Piratas del Caribe");
+    Pelicula pelicula2 = Pelicula(2, 90, 2, "Drama", "Doraemon");
+    peliculas.push_back(pelicula1);
+    peliculas.push_back(pelicula2);
 
+    Video video1 = Video(1, 20, 2, "Terror", "Básicos de Electromagnetismo");
+    videos.push_back(video1);
+}
 
 
 void menu() {
