@@ -13,6 +13,8 @@ class Serie : public Video {
         double calificacionPromedio;
         //Video episodios[100];
 
+        void mostrarDatosSerie();
+
     public:
         // Metodos
         // Constructor
