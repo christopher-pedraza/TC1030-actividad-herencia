@@ -5,7 +5,7 @@
 #include <iostream>
 
 std::vector<Pelicula> peliculas;
-std::vector<Serie> series1;
+std::vector<Serie> series;
 std::vector<Video> videos;
 
 
@@ -30,17 +30,15 @@ void consultarPelicula() {
 void consultarSerie() {
     int id = 0;
     std::cout << "Series disponibles: " << std::endl;
-    for (int i = 1; i <= series1.size(); i++) {
-        std::cout << series1[i-1];
+    for (int i = 1; i <= series.size(); i++) {
+        std::cout << series[i-1];
     }
     std::cout << "Introduce el id de la serie:" << std::endl;
     std::cin >> id;
     std::cout << std::endl;
 
-    if (id <= series1.size() && id > 0) {
-        series1[id-1].mostrarVideo();
-        std::cout << "\n"<<"Episodios: "<<std::endl;
-        series1[id-1].mostrarEpisodios();
+    if (id <= series.size() && id > 0) {
+        series[id-1].mostrarEpisodios();
         std::cout << std::endl;
     } else {
         std::cout << "ID inválido" << std::endl;
@@ -49,18 +47,20 @@ void consultarSerie() {
 
 void consultarSerieCalificacion() {
     int calificacion = 0;
-    std::cout << "Introduce la calificacion deseada para consultar:" << std::endl;
+    std::cout << "Introduce la calificacion deseada para consultar:";
     std::cin >> calificacion;
+    std::cout << std::endl;
 
-    for (int i = 0; i < series1.size(); i++) {
-        series1[i].imprimir(calificacion);
+    for (int i = 0; i < series.size(); i++) {
+        series[i].imprimir(calificacion);
     }
 }
 
 void consultarPeliculaCalificacion() {
     int calificacion = 0;
-    std::cout << "Introduce la calificacion deseada para consultar:" << std::endl;
+    std::cout << "Introduce la calificacion deseada para consultar:";
     std::cin >> calificacion;
+    std::cout << std::endl;
 
     for (int i = 0; i < peliculas.size(); i++) {
         peliculas[i].imprimir(calificacion);
@@ -69,8 +69,9 @@ void consultarPeliculaCalificacion() {
 
 void consultarVideoCalificacion() {
     int calificacion = 0;
-    std::cout << "Introduce la calificacion deseada para consultar:" << std::endl;
+    std::cout << "Introduce la calificacion deseada para consultar:";
     std::cin >> calificacion;
+    std::cout << std::endl;
 
     for (int i = 0; i < videos.size(); i++) {
         videos[i].imprimir(calificacion);
@@ -91,8 +92,8 @@ void calificarPelicula() {
     int id = 0;
     int calificacion = 0;
     std::cout << "Estas son las películas disponibles: " << std::endl;
-    for (int i = 1; i <= series1.size(); i++) {
-        std::cout << series1[i-1];
+    for (int i = 1; i <= series.size(); i++) {
+        std::cout << series[i-1];
     }
     std::cout << "Introduce el id de la pelicula:" << std::endl;
     std::cin >> id;
@@ -115,22 +116,38 @@ void calificarSerie() {
     int id = 0;
     double calificacion = 0;
     std::cout << "Estas son las series disponibles: " << std::endl;
-        for (int i = 1; i <= series1.size(); i++) {
-        std::cout << series1[i-1];
+        for (int i = 1; i <= series.size(); i++) {
+        std::cout << series[i-1];
     }
     std::cout << "Introduce el id de la serie:" << std::endl;
     std::cin >> id;
     std::cout << std::endl;
 
-    if (id <= series1.size() && id > 0) {
-        series1[id-1].mostrarVideo();
+    if (id <= series.size() && id > 0) {
+        series[id-1].mostrarVideo();
         std::cout << "\n"<<"Episodios: "<<std::endl;
-        series1[id-1].mostrarEpisodios();
+        series[id-1].mostrarEpisodios();
         std::cout << std::endl;
     } else {
         std::cout << "ID inválido" << std::endl;
     }
 }
+
+void cargarArchivo() {
+    Series data;
+    std::string nombreseries,nombreepisodios;
+    std::cout << "Introduce el nombre del archivo de series: ";
+    std::cin>>nombreseries;
+    std::cout << std::endl;
+    std::cout << "Introduce el nombre del archivo de episodios: ";
+    std::cin>>nombreepisodios;
+    std::cout << std::endl;
+
+    data.leerArchivo(nombreseries, nombreepisodios);
+
+    series = data.getSeries();
+}
+
 
 void menu() {
     // Se declara la variable de las opciones
@@ -190,16 +207,7 @@ void menu() {
                 break;
             }
             case 8: {
-                Series data;
-                std::string nombreseries,nombreepisodios;
-                std::cout<<"cual es el nombre del archivo de series?"<<std::endl;
-                std::cin>>nombreseries;
-                std::cout<<"cual es el nombre del archivo de episodios?"<<std::endl;
-                std::cin>>nombreepisodios;
-               
-                data.leerArchivo(nombreseries,nombreepisodios);
-
-                series1 = data.getSeries();
+                    cargarArchivo();
                 break;
             }          
 

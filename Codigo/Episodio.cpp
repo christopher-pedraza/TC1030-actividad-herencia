@@ -75,7 +75,7 @@ double Episodio::getCalificacion() {
 // Recibe: Nada
 // Regresa: Los atributos concatenados en formato string y separados por ','
 void Episodio::mostrarEpisodio() {
-    std::cout << "nombre: " << titulo << std::endl;
-    std::cout << "temporada: " << temporada << std::endl;
-    std::cout << "calificacion: " <<calificacion << std::endl;
+    std::cout << "Nombre: " << titulo << std::endl;
+    std::cout << "Temporada: " << temporada << std::endl;
+    std::cout << "Calificación: " << calificacion << std::endl;
 }
