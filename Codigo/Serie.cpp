@@ -48,6 +48,10 @@ std::string Serie::getNombreSerie() {
     return nombreSerie;
 }
 
+Episodio Serie::getEpisodio(int _index){
+    return episodios[_index];
+}
+
 
 // Adicionales
 void Serie::agregarEpisodio(Episodio _episodio) {
