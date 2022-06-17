@@ -12,6 +12,8 @@ class Serie : public Video {
         std::vector<Video> episodios;
         //Video episodios[100];
 
+        void mostrarDatosSerie();
+
     public:
         // Metodos
         // Constructor

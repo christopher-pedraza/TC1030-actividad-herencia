@@ -3,9 +3,10 @@
 
 Serie::Serie(int _idSerie, std::string _nombre, int _cantidadEpisodios, int _idEpisodio, int _temporada, int _duracion, int _calificacion, std::string _genero, std::string _nombreEpisodio) : Video(_idEpisodio, _duracion, _calificacion, _genero, _nombreEpisodio) {
     episodios.push_back(Video(_idEpisodio, _duracion, _calificacion, _genero, _nombreEpisodio));
-    //episodios[0] = Video(_idEpisodio, _duracion, _calificacion, _genero, _nombreEpisodio);
     cantidadEpisodios = _cantidadEpisodios;
     temporada = _temporada;
+    idSerie = _idSerie;
+    nombre = _nombre;
 }
 
 // Setters
@@ -52,40 +53,46 @@ Video Serie::getEpisodio(int _index) {
 
 // Adicionales
 void Serie::agregarEpisodio(Video _episodio) {
-    /*
-    if (cantidadEpisodios < 10) {
-        episodios[cantidadEpisodios] = _episodio;
-        cantidadEpisodios++;
-    }
-    */
     episodios.push_back(_episodio);
     cantidadEpisodios++;
 }
 
 void Serie::agregarEpisodio(int _id, int _duracion, int _calificacion, std::string _genero, std::string _nombre) {
-    /*
-    Video _episodio = Video(_id, _duracion, _calificacion, _genero, _nombre);
-    if (cantidadEpisodios < 10) {
-        episodios[cantidadEpisodios] = _episodio;
-        cantidadEpisodios++;
-    }
-    */
     episodios.push_back(Video(_id, _duracion, _calificacion, _genero, _nombre));
     cantidadEpisodios++;
 }
 
-void Serie::mostrarEpisodios(){
+void Serie::mostrarEpisodios() {
+    mostrarDatosSerie();
+    std::cout<<std::endl;
+    std::cout << "Episodios : " << std::endl;
     for(int i = 0; i < cantidadEpisodios; i++) {
         episodios[i].mostrarVideo();
         std::cout<<std::endl;
     }
 }
 
+void Serie::mostrarDatosSerie() {
+    std::cout << "Datos de la serie: " << std::endl;
+    std::cout << "ID: " << idSerie << std::endl;
+    std::cout << "Nombre: " << nombre << std::endl;
+    std::cout << "Cantidad de episodios: " << cantidadEpisodios << std::endl;
+}
+
 void Serie::imprimir(int _calificacion) {
+    int contador = 0;
+    mostrarDatosSerie();
+    std::cout << std::endl;
+    std::cout << "Episodios con califiación de: " << _calificacion << std::endl;
     for(int i = 0; i < cantidadEpisodios; i++) {
         if (episodios[i].getCalificacion() == _calificacion) {
             episodios[i].mostrarVideo();
-            std::cout<<std::endl;
+            std::cout << std::endl;
+            contador++;
         }
     }
+    if (contador == 0) {
+        std::cout << "No se encontró ningún episodio" << std::endl;
+    }
+    std::cout << std::endl;
 }
