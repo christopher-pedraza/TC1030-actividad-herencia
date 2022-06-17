@@ -22,6 +22,8 @@ class Series {
 		// Metodos de acceso - para acceder al valor de un atributo
 		int getCantidadSeries();
 
+		std::vector<Serie> getSeries();
+
 		// Metodos adicionales
 		void addSerieAlArreglo(Serie _serie);
 		

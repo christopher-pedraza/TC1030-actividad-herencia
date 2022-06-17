@@ -31,9 +31,14 @@ void Series::setCantidadSeries(int _cantidadSeries) {
 int Series::getCantidadSeries() {
 	return cantidadSeries;
 }
+std::vector<Serie> Series::getSeries(){
+	return series;
+}
+
 
 void Series::addSerieAlArreglo(Serie _serie){
 	series.push_back(_serie);
+	cantidadSeries++;
 }
 /*
 * Metodos adicionales
@@ -67,7 +72,8 @@ void Series::leerArchivo(std::string fileserie, std::string fileepisodio) {
 		columna = 0;
 
 		// Se toma un registro/linea
-        std::stringstream registro{linea};
+        std::stringstream registro;
+		registro.str(linea);
         
 		// Mientras que el registro tenga otro dato se itera
         while (getline(registro, dato, ';')) { // Se separa el registro por comas
@@ -75,7 +81,7 @@ void Series::leerArchivo(std::string fileserie, std::string fileepisodio) {
 			// Dependiendo de en que columna se esta iterando, se asigna a un atributo diferente del objeto
             switch (columna++) {
                 case 0: {
-					tempSerie.setIDSerie(stoi(dato)-1);
+					tempSerie.setIDSerie(stoi(dato));
                 	break;
 				}
                 case 1: {
@@ -117,7 +123,8 @@ void Series::leerArchivo(std::string fileserie, std::string fileepisodio) {
 		columna = 0;
 
 		// Se toma un registro/linea
-        std::stringstream registro{linea};
+        std::stringstream registro;
+		registro.str(linea);
 
 		// Mientras que el registro tenga otro dato se itera
         while (getline(registro, dato, ';')) {
