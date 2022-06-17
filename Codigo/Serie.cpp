@@ -66,8 +66,8 @@ void Serie::mostrarEpisodios() {
 }
 
 void Serie::mostrarVideo() {
-    std::cout << "ID: " << id << std::endl;
-    std::cout << "Nombre: " << nombre << std::endl;
+    std::cout << "ID: " << idSerie << std::endl;
+    std::cout << "Nombre: " << nombreSerie << std::endl;
     std::cout << "Duración: " << duracion << std::endl;
     std::cout << "Género: " << genero << std::endl;
     std::cout << "Calificación: " << calificacion << std::endl;

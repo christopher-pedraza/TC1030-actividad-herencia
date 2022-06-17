@@ -38,8 +38,6 @@ void consultarSerie() {
     std::cout << std::endl;
 
     if (id <= series.size() && id > 0) {
-        series[id-1].mostrarVideo();
-        std::cout << "\n"<<"Episodios: " << std::endl;
         series[id-1].mostrarEpisodios();
         std::cout << std::endl;
     } else {
