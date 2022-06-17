@@ -62,48 +62,8 @@ void consultarVideoCalificacion() {
     }
 }
 
-void agregarVideos() {
-    Pelicula pelicula1 = Pelicula(1, 120, 4, "Accion", "Piratas del Caribe");
-    Pelicula pelicula2 = Pelicula(2, 90, 2, "Drama", "Doraemon");
-    peliculas.push_back(pelicula1);
-    peliculas.push_back(pelicula2);
 
-    Serie serie1 = Serie(1, "Moonknight", 1, 1, 2, 40, 3, "Accion", "Episodio I M");
-    serie1.agregarEpisodio(2, 40, 4, "Accion", "En la tumba");
-    Serie serie2 = Serie(2, "SpyXFamily", 1, 1, 1, 20, 5, "Misterio", "Episodio I S");
-    Serie serie3 = Serie(3, "Gambito de dama", 1, 1, 1, 60, 5, "Drama", "Episodio I G");
-    series.push_back(serie1);
-    series.push_back(serie2);
-    series.push_back(serie3);
 
-    Video video1 = Video(1, 20, 2, "Terror", "Básicos de Electromagnetismo");
-    videos.push_back(video1);
-}
-
-void storePeliculas(std::string Filename, std::vector<Pelicula> peliculas){
-
-    std::vector<Pelicula> data = peliculas;
-    std::ofstream File;
-    File.open(Filename.c_str(),std::ios::app);
-    for (int i = 0;data.size() > i;i++){
-        File.write((char*)& data[i],sizeof(data[i]));
-
-    }
-    File.close();
-}
-
-void readPeliculas(std::string Filename){
-
-    std::ifstream File;
-    File.open(Filename.c_str(),std::ios::in);
-    while(!File.eof()){
-        Pelicula temp(0,0,0," "," ");
-        File.read((char*)& temp,sizeof(temp));
-        peliculas.push_back(temp);
-    }
-    File.close();
-
-}
 
 
 void menu() {
@@ -161,11 +121,8 @@ void menu() {
 }
 
 int main() {
-    //agregarVideos();
 
-    //storePeliculas("peliculas.txt", peliculas);
-    readPeliculas("peliculas.txt");
-    peliculas[1].mostrarVideo();
+    
     //menu(); // Se mantiene en ciclo en esta funcion
     return 0;
 } 

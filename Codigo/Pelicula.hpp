@@ -12,8 +12,6 @@ class Pelicula : public Video {
         
         // Adicionales
         void imprimir(int _calificacion);
-
-
 };
 
 #endif /* Pelicula_hpp */
