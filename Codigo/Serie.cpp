@@ -97,3 +97,8 @@ void Serie::imprimir(int _calificacion) {
     }
     std::cout << std::endl;
 }
+
+std::ostream& operator << (std::ostream& os, const Serie& _serie) {
+    os << "ID: " << _serie.idSerie << std::endl << "Nombre: " << _serie.nombre << std::endl << "Cantidad de episodios: " << _serie.cantidadEpisodios << std::endl << std::endl;
+    return os;
+}

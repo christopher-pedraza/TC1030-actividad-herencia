@@ -12,6 +12,7 @@ class Pelicula : public Video {
         
         // Adicionales
         void imprimir(int _calificacion);
+        friend std::ostream& operator << (std::ostream& os, const Pelicula& _pelicula);
 };
 
 #endif /* Pelicula_hpp */

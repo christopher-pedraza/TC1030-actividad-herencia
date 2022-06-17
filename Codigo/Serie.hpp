@@ -44,6 +44,7 @@ class Serie : public Video {
         void mostrarVideo();
 
         void imprimir(int _calificacion);
+        friend std::ostream& operator << (std::ostream& os, const Serie& _serie);
 };
 
 #endif /* Serie_hpp */
