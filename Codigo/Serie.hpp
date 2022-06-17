@@ -39,6 +39,7 @@ class Serie : public Video {
         void agregarEpisodio(Episodio _episodio);
         void agregarEpisodio(int _id, int _duracion, int _calificacion, std::string _genero, std::string _nombre);
         void mostrarEpisodios();
+        void mostrarVideo();
 
         void imprimir(int _calificacion);
 };

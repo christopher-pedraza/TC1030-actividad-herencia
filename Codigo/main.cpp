@@ -5,7 +5,7 @@
 #include <iostream>
 
 std::vector<Pelicula> peliculas;
-Series series;
+std::vector<Serie> series1;
 std::vector<Video> videos;
 
 
@@ -26,9 +26,12 @@ void consultarSerie() {
     int id = 0;
     std::cout << "Introduce el id de la serie:" << std::endl;
     std::cin >> id;
+    std::cout << std::endl;
 
-    if (id <= series.getCantidadSeries() && id > 0) {
-        series.getSeries()[id-1].mostrarVideo();
+    if (id <= series1.size() && id > 0) {
+        series1[id-1].mostrarVideo();
+        std::cout << "\n"<<"Episodios: "<<std::endl;
+        series1[id-1].mostrarEpisodios();
         std::cout << std::endl;
     } else {
         std::cout << "ID inválido" << std::endl;
@@ -40,8 +43,8 @@ void consultarSerieCalificacion() {
     std::cout << "Introduce la calificacion deseada para consultar:" << std::endl;
     std::cin >> calificacion;
 
-    for (int i = 0; i < series.getCantidadSeries(); i++) {
-        series.getSeries()[i].imprimir(calificacion);
+    for (int i = 0; i < series1.size(); i++) {
+        series1[i].imprimir(calificacion);
     }
 }
 
@@ -117,13 +120,16 @@ void menu() {
                 break;
             } 
             case 6: {
+                Series data;
                 std::string nombreseries,nombreepisodios;
                 std::cout<<"cual es el nombre del archivo de series?"<<std::endl;
                 std::cin>>nombreseries;
                 std::cout<<"cual es el nombre del archivo de episodios?"<<std::endl;
                 std::cin>>nombreepisodios;
                
-                series.leerArchivo(nombreseries,nombreepisodios);
+                data.leerArchivo(nombreseries,nombreepisodios);
+
+                series1 = data.getSeries();
                 break;
             }          
             default: { // Ninguna de las anteriores
@@ -136,8 +142,7 @@ void menu() {
 
 int main() {
 
-    series.leerArchivo("series.csv","episodios.csv");
-    series.getSeries()[0].mostrarVideo();
-    //menu(); // Se mantiene en ciclo en esta funcion
+   
+    menu(); // Se mantiene en ciclo en esta funcion
     return 0;
 } 

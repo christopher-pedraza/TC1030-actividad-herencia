@@ -72,6 +72,15 @@ void Serie::mostrarEpisodios(){
     }
 }
 
+void Serie::mostrarVideo(){
+    
+    std::cout << "id: " << idSerie << std::endl;
+    std::cout << "nombre: " << nombreSerie << std::endl;
+    std::cout << "duracion: " << duracion << std::endl;
+    std::cout << "genero: " <<genero << std::endl;
+    std::cout << "calificacion: " <<calificacion << std::endl;
+}
+
 void Serie::imprimir(int _calificacion) {
     for(int i = 0; i < cantidadEpisodios; i++) {
         if (episodios[i].getCalificacion() == _calificacion) {
