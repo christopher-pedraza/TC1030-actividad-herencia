@@ -64,6 +64,7 @@ void Serie::mostrarEpisodios() {
     std::cout<<std::endl;
     std::cout << "Episodios : " << std::endl;
     for(int i = 0; i < cantidadEpisodios; i++) {
+        std::cout<<"id: " <<i+1<<std::endl;
         episodios[i].mostrarEpisodio();
         std::cout<<std::endl;
     }
