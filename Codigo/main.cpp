@@ -30,8 +30,8 @@ void consultarPelicula() {
 void consultarSerie() {
     int id = 0;
     std::cout << "Series disponibles: " << std::endl;
-    for (int i = 1; i <= series.size(); i++) {
-        std::cout << series[i-1];
+    for (int i = 1; i <= series1.size(); i++) {
+        std::cout << series1[i-1];
     }
     std::cout << "Introduce el id de la serie:" << std::endl;
     std::cin >> id;
