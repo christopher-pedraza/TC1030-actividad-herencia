@@ -207,7 +207,7 @@ void menu() {
                 break;
             }
             case 8: {
-                    cargarArchivo();
+                cargarArchivo();
                 break;
             }          
 
