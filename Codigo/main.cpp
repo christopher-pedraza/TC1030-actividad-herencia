@@ -78,12 +78,6 @@ void consultarVideoCalificacion() {
 }
 
 
-void agregarVideos() {
-    
-    Video video1 = Video(1, 20, 2, "Terror", "Básicos de Electromagnetismo");
-    videos.push_back(video1);
-}
-
 void cargarArchivo() {
     Series data;
     Peliculas data1;
@@ -110,7 +104,7 @@ void cargarArchivo() {
         std::cout<<"cual es el nombre del archivo de Videos?"<<std::endl;
         std::cin>>nombreVideos;
     }
-    else{break;}
+    else{std::cout<<"opcion invalida"<<std::endl;}
                 
                
     data.leerArchivo(nombreseries,nombreepisodios);
@@ -186,7 +180,7 @@ void menu() {
 
 int main() {
 
-    agregarVideos();
+
     menu(); // Se mantiene en ciclo en esta funcion
     return 0;
 } 
