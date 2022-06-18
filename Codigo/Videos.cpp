@@ -1,54 +1,48 @@
-/****************************************************
-TC1030 - Equipo 8
-Proyecto Integrador
-Peliculas.cpp
-*****************************************************/
-
-#include "Peliculas.hpp"
+#include "Videos.hpp"
 
 // Metodos constuctores
-Peliculas::Peliculas(){
+Videos::Videos(){
 
-    cantidadPeliculas = 0;
+    cantidadVideos = 0;
 }
 
 // Metodos modificadores - para modificar el valor de un atributo
-void Peliculas::setCantidadPeliculas(int _cantidadPelis){
+void Videos::setCantidadVideos(int _cantidadVideos){
 
-    cantidadPeliculas = _cantidadPelis;
+    cantidadVideos = _cantidadVideos;
 }
 
 // Metodos de acceso - para acceder al valor de un atributo
-int Peliculas::getCantidadPeliculas(){
-    return cantidadPeliculas;
+int Videos::getCantidadVideos(){
+    return cantidadVideos;
 }
 
 
 
-std::vector<Pelicula> Peliculas::getPeliculas(){
+std::vector<Video> Videos::getVideos(){
 
-    return peliculas;
+    return videos;
 }
 // Metodos adicionales
-void Peliculas::addPeliculaAlArreglo(Pelicula  _pelicula){
-    peliculas.push_back(_pelicula);
-	cantidadPeliculas++;
+void Videos::addVideoAlArreglo(Video  _video){
+    videos.push_back(_video);
+	cantidadVideos++;
 
 }
 		
-void Peliculas::leerArchivo(std::string filepelis){
+void Videos::leerArchivo(std::string fileVideo){
 	// Variables e instancias de clases
 	std::string linea, dato;
 	int indice = 0;
 	int columna;
-	Pelicula temp;
+	Video temp;
     std::ifstream lectura; // Input stream
 	
 	/*
 	* Series.csv
 	*/
 	// Se abre el archivo .csv
-    lectura.open(filepelis.c_str(),std::ios::in);
+    lectura.open(fileVideo.c_str(),std::ios::in);
 
 	// Mientras que el archivo tenga otra linea se itera
 	while (getline(lectura, linea)) {
@@ -86,6 +80,6 @@ void Peliculas::leerArchivo(std::string filepelis){
         	}
     	}
 		// Se agrega el objeto de serie al arreglo de series
-		addPeliculaAlArreglo(temp);
+		addVideoAlArreglo(temp);
 	}
 }
