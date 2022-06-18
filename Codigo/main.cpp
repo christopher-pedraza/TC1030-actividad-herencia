@@ -1,11 +1,10 @@
-#include "Pelicula.hpp"
-#include "Serie.hpp"
+#include "Peliculas.hpp"
 #include "Series.hpp"
 #include <fstream>
 #include <iostream>
 
 std::vector<Pelicula> peliculas;
-std::vector<Serie> series1;
+std::vector<Serie> series;
 std::vector<Video> videos;
 
 
@@ -28,10 +27,10 @@ void consultarSerie() {
     std::cin >> id;
     std::cout << std::endl;
 
-    if (id <= series1.size() && id > 0) {
-        series1[id-1].mostrarVideo();
+    if (id <= series.size() && id > 0) {
+        series[id-1].mostrarVideo();
         std::cout << "\n"<<"Episodios: "<<std::endl;
-        series1[id-1].mostrarEpisodios();
+        series[id-1].mostrarEpisodios();
         std::cout << std::endl;
     } else {
         std::cout << "ID inválido" << std::endl;
@@ -43,8 +42,8 @@ void consultarSerieCalificacion() {
     std::cout << "Introduce la calificacion deseada para consultar:" << std::endl;
     std::cin >> calificacion;
 
-    for (int i = 0; i < series1.size(); i++) {
-        series1[i].imprimir(calificacion);
+    for (int i = 0; i < series.size(); i++) {
+        series[i].imprimir(calificacion);
     }
 }
 
@@ -70,11 +69,7 @@ void consultarVideoCalificacion() {
 
 
 void agregarVideos() {
-    Pelicula pelicula1 = Pelicula(1, 120, 4, "Accion", "Piratas del Caribe");
-    Pelicula pelicula2 = Pelicula(2, 90, 2, "Drama", "Doraemon");
-    peliculas.push_back(pelicula1);
-    peliculas.push_back(pelicula2);
-
+    
     Video video1 = Video(1, 20, 2, "Terror", "Básicos de Electromagnetismo");
     videos.push_back(video1);
 }
@@ -129,15 +124,20 @@ void menu() {
             } 
             case 6: {
                 Series data;
-                std::string nombreseries,nombreepisodios;
+                Peliculas data1;
+                std::string nombreseries,nombreepisodios,nombrePeliculas;
                 std::cout<<"cual es el nombre del archivo de series?"<<std::endl;
                 std::cin>>nombreseries;
                 std::cout<<"cual es el nombre del archivo de episodios?"<<std::endl;
                 std::cin>>nombreepisodios;
+                std::cout<<"cual es el nombre del archivo de Peliculas?"<<std::endl;
+                std::cin>>nombrePeliculas;
                
                 data.leerArchivo(nombreseries,nombreepisodios);
+                data1.leerArchivo(nombrePeliculas);
 
-                series1 = data.getSeries();
+                series = data.getSeries();
+                peliculas = data1.getPeliculas();
                 break;
             }          
             default: { // Ninguna de las anteriores
@@ -154,3 +154,4 @@ int main() {
     menu(); // Se mantiene en ciclo en esta funcion
     return 0;
 } 
+
