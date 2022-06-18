@@ -1,4 +1,5 @@
 #include "Peliculas.hpp"
+#include "Serie.hpp"
 #include "Series.hpp"
 #include <fstream>
 #include <iostream>
@@ -6,7 +7,6 @@
 std::vector<Pelicula> peliculas;
 std::vector<Serie> series;
 std::vector<Video> videos;
-
 
 
 void consultarPelicula() {
