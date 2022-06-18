@@ -110,7 +110,7 @@ void cargarArchivo() {
         std::cout<<"cual es el nombre del archivo de Videos?"<<std::endl;
         std::cin>>nombreVideos;
     }
-    else{break;}
+    else{std::cout<<"opcion invalida"<<std::endl;}
                 
                
     data.leerArchivo(nombreseries,nombreepisodios);
