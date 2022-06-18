@@ -11,8 +11,13 @@ std::vector<Video> videos;
 
 void consultarPelicula() {
     int id = 0;
-    std::cout << "Introduce el ID de la pelicula:" << std::endl;
+    std::cout << "Películas disponibles: " << std::endl;
+    for (int i = 1; i <= peliculas.size(); i++) {
+        std::cout << peliculas[i-1];
+    }
+    std::cout << "Introduce el id de la pelicula:" << std::endl;
     std::cin >> id;
+    
     if (id <= peliculas.size() && id > 0) {
         peliculas[id-1].mostrarVideo();
         std::cout << std::endl;
@@ -23,13 +28,15 @@ void consultarPelicula() {
 
 void consultarSerie() {
     int id = 0;
+    std::cout << "Series disponibles: " << std::endl;
+    for (int i = 1; i <= series.size(); i++) {
+        std::cout << series[i-1];
+    }
     std::cout << "Introduce el id de la serie:" << std::endl;
     std::cin >> id;
     std::cout << std::endl;
 
     if (id <= series.size() && id > 0) {
-        series[id-1].mostrarVideo();
-        std::cout << "\n"<<"Episodios: "<<std::endl;
         series[id-1].mostrarEpisodios();
         std::cout << std::endl;
     } else {
@@ -39,8 +46,9 @@ void consultarSerie() {
 
 void consultarSerieCalificacion() {
     int calificacion = 0;
-    std::cout << "Introduce la calificacion deseada para consultar:" << std::endl;
+    std::cout << "Introduce la calificacion deseada para consultar:";
     std::cin >> calificacion;
+    std::cout << std::endl;
 
     for (int i = 0; i < series.size(); i++) {
         series[i].imprimir(calificacion);
@@ -49,8 +57,9 @@ void consultarSerieCalificacion() {
 
 void consultarPeliculaCalificacion() {
     int calificacion = 0;
-    std::cout << "Introduce la calificacion deseada para consultar:" << std::endl;
+    std::cout << "Introduce la calificacion deseada para consultar:";
     std::cin >> calificacion;
+    std::cout << std::endl;
 
     for (int i = 0; i < peliculas.size(); i++) {
         peliculas[i].imprimir(calificacion);
@@ -59,8 +68,9 @@ void consultarPeliculaCalificacion() {
 
 void consultarVideoCalificacion() {
     int calificacion = 0;
-    std::cout << "Introduce la calificacion deseada para consultar:" << std::endl;
+    std::cout << "Introduce la calificacion deseada para consultar:";
     std::cin >> calificacion;
+    std::cout << std::endl;
 
     for (int i = 0; i < videos.size(); i++) {
         videos[i].imprimir(calificacion);
@@ -72,6 +82,44 @@ void agregarVideos() {
     
     Video video1 = Video(1, 20, 2, "Terror", "Básicos de Electromagnetismo");
     videos.push_back(video1);
+}
+
+void cargarArchivo() {
+    Series data;
+    Peliculas data1;
+    Videos data2;
+                
+    std::string nombreseries,nombreepisodios,nombrePeliculas,nombreVideos,opcion;
+    std::cout<<"Quieres usar los archivos predeterminados?(y/n)"<<std::endl;
+    std::cin>>opcion;
+
+    if (opcion == "y"){
+        nombreseries = "series.csv";
+        nombreepisodios = "episodios.csv";
+        nombrePeliculas = "peliculas.csv";
+        nombreVideos = "videos.csv";
+    }
+    else if (opcion == "n")
+    {
+        std::cout<<"cual es el nombre del archivo de series?"<<std::endl;
+        std::cin>>nombreseries;
+        std::cout<<"cual es el nombre del archivo de episodios?"<<std::endl;
+        std::cin>>nombreepisodios;
+        std::cout<<"cual es el nombre del archivo de Peliculas?"<<std::endl;
+        std::cin>>nombrePeliculas;
+        std::cout<<"cual es el nombre del archivo de Videos?"<<std::endl;
+        std::cin>>nombreVideos;
+    }
+    else{break;}
+                
+               
+    data.leerArchivo(nombreseries,nombreepisodios);
+    data1.leerArchivo(nombrePeliculas);
+    data2.leerArchivo(nombreVideos);
+
+    series = data.getSeries();
+    peliculas = data1.getPeliculas();
+    videos = data2.getVideos();
 }
 
 
@@ -88,8 +136,8 @@ void menu() {
             "\n3)  Consultar serie por calificación" <<
             "\n4)  Consultar película por calificación" <<
             "\n5)  Consultar video por calificación" <<
-            "\n6)  cargar archivo de datos" <<
-            "\n0) Salir del programa" <<
+            "\n6)  Cargar archivo de datos" <<
+            "\n0)  Salir del programa" <<
             "\nIntroduce la opción que desea desplegar: ";
 
         // Se pide al usuario que introduzca un numero
@@ -123,41 +171,9 @@ void menu() {
                 break;
             } 
             case 6: {
-                Series data;
-                Peliculas data1;
-                Videos data2;
-                
-                std::string nombreseries,nombreepisodios,nombrePeliculas,nombreVideos,opcion;
-                std::cout<<"Quieres usar los archivos predeterminados?(y/n)"<<std::endl;
-                std::cin>>opcion;
 
-                if (opcion == "y"){
-                    nombreseries = "series.csv";
-                    nombreepisodios = "episodios.csv";
-                    nombrePeliculas = "peliculas.csv";
-                    nombreVideos = "videos.csv";
-                }
-                else if (opcion == "n")
-                {
-                    std::cout<<"cual es el nombre del archivo de series?"<<std::endl;
-                    std::cin>>nombreseries;
-                    std::cout<<"cual es el nombre del archivo de episodios?"<<std::endl;
-                    std::cin>>nombreepisodios;
-                    std::cout<<"cual es el nombre del archivo de Peliculas?"<<std::endl;
-                    std::cin>>nombrePeliculas;
-                    std::cout<<"cual es el nombre del archivo de Videos?"<<std::endl;
-                    std::cin>>nombreVideos;
-                }
-                else{break;}
-                
-               
-                data.leerArchivo(nombreseries,nombreepisodios);
-                data1.leerArchivo(nombrePeliculas);
-                data2.leerArchivo(nombreVideos);
+                cargarArchivo();
 
-                series = data.getSeries();
-                peliculas = data1.getPeliculas();
-                videos = data2.getVideos();
                 break;
             }          
             default: { // Ninguna de las anteriores

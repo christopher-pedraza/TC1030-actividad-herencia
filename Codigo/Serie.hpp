@@ -26,7 +26,7 @@ class Serie : public Video {
         void setEpisodios(int _cantidad_episodios);
         void setTemporada(int _temporada);
         void setNombreSerie(std::string _nombreSerie);
-        void setEpisodio(Video _titulo_Ep, int _index);
+        void setEpisodio(Episodio _titulo_Ep, int _index);
       
 
         // Getters
@@ -34,7 +34,7 @@ class Serie : public Video {
         int getCantidadEpisodios();
         int getTemporada();
         std::string getNombreSerie();
-        Video getEpisodio(int _index);
+        Episodio getEpisodio(int _index);
        
 
         // Adiocionales
@@ -44,6 +44,7 @@ class Serie : public Video {
         void mostrarVideo();
 
         void imprimir(int _calificacion);
+        friend std::ostream& operator << (std::ostream& os, const Serie& _serie);
 };
 
 #endif /* Serie_hpp */
