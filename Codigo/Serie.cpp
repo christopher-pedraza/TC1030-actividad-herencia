@@ -24,11 +24,15 @@ void Serie::setIDSerie(int _idSerie) {
 }
 
 void Serie::setEpisodios(int _episodios) {
-    cantidadEpisodios = _episodios; 
+    cantidadEpisodios = _episodios;
 }
 
 void Serie::setNombreSerie(std::string _nombreSerie) {
     nombreSerie = _nombreSerie;
+}
+
+void Serie::setEpisodio(Episodio _episodio, int _index) {
+    episodios[_index] = _episodio;
 }
 
 

@@ -26,7 +26,7 @@ class Serie : public Video {
         void setEpisodios(int _cantidad_episodios);
         void setTemporada(int _temporada);
         void setNombreSerie(std::string _nombreSerie);
-        void setEpisodio(Episodio _titulo_Ep, int _index);
+        void setEpisodio(Episodio _episodio, int _index);
       
 
         // Getters
