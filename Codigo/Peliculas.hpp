@@ -1,5 +1,5 @@
-#ifndef Series_hpp
-#define Series_hpp
+#ifndef Peliculas_hpp
+#define Peliculas_hpp
 
 #include "Pelicula.hpp"
 #include <fstream>
@@ -33,4 +33,4 @@ class Peliculas {
 
 
 
-#endif /* Series_hpp */
+#endif /* Peliculas_hpp */
