@@ -37,6 +37,4 @@ class Peliculas {
 		
 };
 
-
-
 #endif /* Peliculas_hpp */

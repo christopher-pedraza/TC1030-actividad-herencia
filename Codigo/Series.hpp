@@ -12,6 +12,7 @@ Series.hpp
 #include <sstream>
 #include <iomanip>
 
+
 class Series {
     private:
 		// Atributos

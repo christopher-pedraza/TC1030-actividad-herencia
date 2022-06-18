@@ -10,8 +10,8 @@ Video::Video() {
     id = 0;
     duracion = 0;
     calificacion = 0;
-    genero = "";
-    nombre = "";
+    genero = " ";
+    nombre = " ";
 }
 
 Video::Video(int _id, int _duracion, int _calificacion, std::string _genero, std::string _nombre) {

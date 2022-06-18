@@ -94,28 +94,47 @@ void consultarVideoCalificacion() {
 }
 
 void agregarVideos() {
-    Pelicula pelicula1 = Pelicula(1, 120, 4, "Accion", "Piratas del Caribe");
-    Pelicula pelicula2 = Pelicula(2, 90, 2, "Drama", "Doraemon");
-    peliculas.push_back(pelicula1);
-    peliculas.push_back(pelicula2);
-
+    
     Video video1 = Video(1, 20, 2, "Terror", "Básicos de Electromagnetismo");
     videos.push_back(video1);
 }
 
 void cargarArchivo() {
     Series data;
-    std::string nombreseries,nombreepisodios;
-    std::cout << "Introduce el nombre del archivo de series: ";
-    std::cin>>nombreseries;
-    std::cout << std::endl;
-    std::cout << "Introduce el nombre del archivo de episodios: ";
-    std::cin>>nombreepisodios;
-    std::cout << std::endl;
+    Peliculas data1;
+    Videos data2;
+                
+    std::string nombreseries,nombreepisodios,nombrePeliculas,nombreVideos,opcion;
+    std::cout<<"Quieres usar los archivos predeterminados?(y/n)"<<std::endl;
+    std::cin>>opcion;
 
-    data.leerArchivo(nombreseries, nombreepisodios);
+    if (opcion == "y"){
+        nombreseries = "series.csv";
+        nombreepisodios = "episodios.csv";
+        nombrePeliculas = "peliculas.csv";
+        nombreVideos = "videos.csv";
+    }
+    else if (opcion == "n")
+    {
+        std::cout<<"cual es el nombre del archivo de series?"<<std::endl;
+        std::cin>>nombreseries;
+        std::cout<<"cual es el nombre del archivo de episodios?"<<std::endl;
+        std::cin>>nombreepisodios;
+        std::cout<<"cual es el nombre del archivo de Peliculas?"<<std::endl;
+        std::cin>>nombrePeliculas;
+        std::cout<<"cual es el nombre del archivo de Videos?"<<std::endl;
+        std::cin>>nombreVideos;
+    }
+    else{std::cout<<"opcion invalida"<<std::endl;}
+                
+               
+    data.leerArchivo(nombreseries,nombreepisodios);
+    data1.leerArchivo(nombrePeliculas);
+    data2.leerArchivo(nombreVideos);
 
     series = data.getSeries();
+    peliculas = data1.getPeliculas();
+    videos = data2.getVideos();
 }
 
 
@@ -167,7 +186,9 @@ void menu() {
                 break;
             } 
             case 6: {
-                    cargarArchivo();
+
+                cargarArchivo();
+
                 break;
             }          
             default: { // Ninguna de las anteriores
@@ -184,5 +205,4 @@ int main() {
     menu(); // Se mantiene en ciclo en esta funcion
     return 0;
 } 
-
 
