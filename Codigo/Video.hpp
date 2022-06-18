@@ -1,3 +1,9 @@
+/****************************************************
+TC1030 - Equipo 8
+Proyecto Integrador
+Video.hpp
+*****************************************************/
+
 #ifndef Video_hpp
 #define Video_hpp
 
