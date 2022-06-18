@@ -1,5 +1,5 @@
 #include "Peliculas.hpp"
-#include "Serie.hpp"
+#include "Videos.hpp"
 #include "Series.hpp"
 #include <fstream>
 #include <iostream>
@@ -125,19 +125,39 @@ void menu() {
             case 6: {
                 Series data;
                 Peliculas data1;
-                std::string nombreseries,nombreepisodios,nombrePeliculas;
-                std::cout<<"cual es el nombre del archivo de series?"<<std::endl;
-                std::cin>>nombreseries;
-                std::cout<<"cual es el nombre del archivo de episodios?"<<std::endl;
-                std::cin>>nombreepisodios;
-                std::cout<<"cual es el nombre del archivo de Peliculas?"<<std::endl;
-                std::cin>>nombrePeliculas;
+                Videos data2;
+                
+                std::string nombreseries,nombreepisodios,nombrePeliculas,nombreVideos,opcion;
+                std::cout<<"Quieres usar los archivos predeterminados?(y/n)"<<std::endl;
+                std::cin>>opcion;
+
+                if (opcion == "y"){
+                    nombreseries = "series.csv";
+                    nombreepisodios = "episodios.csv";
+                    nombrePeliculas = "peliculas.csv";
+                    nombreVideos = "videos.csv";
+                }
+                else if (opcion == "n")
+                {
+                    std::cout<<"cual es el nombre del archivo de series?"<<std::endl;
+                    std::cin>>nombreseries;
+                    std::cout<<"cual es el nombre del archivo de episodios?"<<std::endl;
+                    std::cin>>nombreepisodios;
+                    std::cout<<"cual es el nombre del archivo de Peliculas?"<<std::endl;
+                    std::cin>>nombrePeliculas;
+                    std::cout<<"cual es el nombre del archivo de Videos?"<<std::endl;
+                    std::cin>>nombreVideos;
+                }
+                else{break;}
+                
                
                 data.leerArchivo(nombreseries,nombreepisodios);
                 data1.leerArchivo(nombrePeliculas);
+                data2.leerArchivo(nombreVideos);
 
                 series = data.getSeries();
                 peliculas = data1.getPeliculas();
+                videos = data2.getVideos();
                 break;
             }          
             default: { // Ninguna de las anteriores
