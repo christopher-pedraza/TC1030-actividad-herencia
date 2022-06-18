@@ -1,3 +1,9 @@
+/****************************************************
+TC1030 - Equipo 8
+Proyecto Integrador
+Main.cpp
+*****************************************************/
+
 #include "Pelicula.hpp"
 #include "Serie.hpp"
 #include "Series.hpp"
@@ -7,8 +13,6 @@
 std::vector<Pelicula> peliculas;
 std::vector<Serie> series;
 std::vector<Video> videos;
-
-
 
 void consultarPelicula() {
     int id = 0;

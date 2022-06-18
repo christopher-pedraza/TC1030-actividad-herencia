@@ -1,3 +1,9 @@
+/****************************************************
+TC1030 - Equipo 8
+Proyecto Integrador
+Episodio.hpp
+*****************************************************/
+
 #ifndef Episodio_hpp
 #define Episodio_hpp
 

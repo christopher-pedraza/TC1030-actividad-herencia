@@ -1,5 +1,11 @@
-#ifndef Series_hpp
-#define Series_hpp
+/****************************************************
+TC1030 - Equipo 8
+Proyecto Integrador
+Peliculas.hpp
+*****************************************************/
+
+#ifndef Peliculas_hpp
+#define Peliculass_hpp
 
 #include "Pelicula.hpp"
 #include <fstream>
@@ -33,4 +39,4 @@ class Peliculas {
 
 
 
-#endif /* Series_hpp */
+#endif /* Peliculas_hpp */
