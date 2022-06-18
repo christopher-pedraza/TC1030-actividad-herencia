@@ -1,7 +1,11 @@
+/****************************************************
+TC1030 - Equipo 8
+Proyecto Integrador
+Serie.hpp
+*****************************************************/
+
 #include "Serie.hpp"
 #include <iostream>
-
-
 
 Serie::Serie() {
     idSerie  = 0;

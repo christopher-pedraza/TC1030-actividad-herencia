@@ -1,13 +1,19 @@
-#include "Peliculas.hpp"
-#include "Videos.hpp"
-#include "Series.hpp"
+/****************************************************
+TC1030 - Equipo 8
+Proyecto Integrador
+Main.cpp
+*****************************************************/
+
 #include <fstream>
 #include <iostream>
+#include "Pelicula.hpp"
+#include "Serie.hpp"
+#include "Series.hpp"
+#include "InvalidOptionException.hpp"
 
 std::vector<Pelicula> peliculas;
 std::vector<Serie> series;
 std::vector<Video> videos;
-
 
 void consultarPelicula() {
     int id = 0;
@@ -17,11 +23,16 @@ void consultarPelicula() {
     }
     std::cout << "Introduce el id de la pelicula:" << std::endl;
     std::cin >> id;
-    
-    if (id <= peliculas.size() && id > 0) {
-        peliculas[id-1].mostrarVideo();
-        std::cout << std::endl;
-    } else {
+
+    try {
+        if (id <= peliculas.size() && id > 0) {
+            peliculas[id-1].mostrarVideo();
+            std::cout << std::endl;
+        } else {
+            throw InvalidOptionException();
+        }
+    } catch(InvalidOptionException& e) {
+        std::cout << e.what() << std::endl;
         std::cout << "ID inválido" << std::endl;
     }
 }
@@ -35,13 +46,18 @@ void consultarSerie() {
     std::cout << "Introduce el id de la serie:" << std::endl;
     std::cin >> id;
     std::cout << std::endl;
-
-    if (id <= series.size() && id > 0) {
-        series[id-1].mostrarEpisodios();
-        std::cout << std::endl;
-    } else {
+    try {
+        if (id <= series.size() && id > 0) {
+            series[id-1].mostrarEpisodios();
+            std::cout << std::endl;
+        } else {
+            throw InvalidOptionException();
+        }
+    } catch(InvalidOptionException& e) {
+        std::cout << e.what() << std::endl;
         std::cout << "ID inválido" << std::endl;
     }
+
 }
 
 void consultarSerieCalificacion() {
@@ -76,7 +92,6 @@ void consultarVideoCalificacion() {
         videos[i].imprimir(calificacion);
     }
 }
-
 
 void agregarVideos() {
     
@@ -177,7 +192,6 @@ void menu() {
                 break;
             }          
             default: { // Ninguna de las anteriores
-				std::cout << std::endl << "Opcion invalida" << std::endl;
 				break;
 			}
         }

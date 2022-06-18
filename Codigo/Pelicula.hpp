@@ -1,3 +1,9 @@
+/****************************************************
+TC1030 - Equipo 8
+Proyecto Integrador
+Pelicula.hpp
+*****************************************************/
+
 #ifndef Pelicula_hpp
 #define Pelicula_hpp
 

@@ -1,3 +1,9 @@
+/****************************************************
+TC1030 - Equipo 8
+Proyecto Integrador
+Series.hpp
+*****************************************************/
+
 #ifndef Serie_hpp
 #define Serie_hpp
 

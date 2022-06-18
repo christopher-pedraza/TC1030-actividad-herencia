@@ -1,5 +1,11 @@
+/****************************************************
+TC1030 - Equipo 8
+Proyecto Integrador
+Peliculas.hpp
+*****************************************************/
+
 #ifndef Peliculas_hpp
-#define Peliculas_hpp
+#define Peliculass_hpp
 
 #include "Pelicula.hpp"
 #include <fstream>
@@ -30,7 +36,5 @@ class Peliculas {
 		void leerArchivo(std::string filepelis);
 		
 };
-
-
 
 #endif /* Peliculas_hpp */

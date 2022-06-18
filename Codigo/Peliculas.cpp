@@ -1,3 +1,9 @@
+/****************************************************
+TC1030 - Equipo 8
+Proyecto Integrador
+Peliculas.cpp
+*****************************************************/
+
 #include "Peliculas.hpp"
 
 // Metodos constuctores
