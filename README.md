@@ -23,7 +23,3 @@ Se utilizó el polimorfismo para sobreescribir el método de imprimir ya que dep
 Las clases abstractas se crean cuando se declara un método virtual en una clase. En nuestro caso, para poder usar el polimorfismo, tuvimos que declarar en la clase base Video un método virtual para que se sobreescriba en el resto de las clases que heredan.
 La sobrecarga de un operador se puede observar en las clases Serie y Película, siendo << el operador sobrecargado. La sobrecarga de este operador, permite imprimir un resumen de los datos de la serie/película y se utilizó este resumen para el catálogo que se imprime para que el usuario indique el ID. La sobrecarga hace que sea más entendible y fácil de programar la impresión de estos atributos.
 El manejo de excepciones se usó en la introducción de ID’s. En caso de que se introduzca un ID inválido, se presenta un mensaje de error. Esto sirve para evitar que el programa termine abruptamente en caso de que el usuario introduzca valores atípicos y se muestra un mensaje de advertencia/sugerencia para el usuario sobre cómo no cometer el error nuevamente.
-
-## DOCUMENTACIÓN
-
-![Documentacion](https://user-images.githubusercontent.com/62347713/170847243-cf610a76-561b-4e62-9913-64501cc6e75a.png)
