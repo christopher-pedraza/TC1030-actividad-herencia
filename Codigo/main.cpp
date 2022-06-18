@@ -131,9 +131,9 @@ void calificarSerie() {
         std::cout << std::endl;
         std::cout << "¿Qué episodio quieres calificar?" <<std::endl;
         std::cin >> capitulo;
-        std::cout << "Inserta tu calificiación para: " << series[id-1].getEpisodio(capitulo-1) << "(de 1 a 5)" << std::endl;
+        std::cout << "Inserta tu calificiación para: " << series[id-1].getEpisodio(capitulo-1).getTitulo() << "(de 1 a 5)" << std::endl;
         std::cin >> calificacion;
-        series[id-1].setCalificacion(calificacion);
+        series[id-1].getEpisodio(capitulo-1).setCalificacion(calificacion);
     } else {
         std::cout << "ID inválido" << std::endl;
     }
