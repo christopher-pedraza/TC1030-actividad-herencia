@@ -6,8 +6,8 @@ Main.cpp
 
 #include <fstream>
 #include <iostream>
-#include "Pelicula.hpp"
-#include "Serie.hpp"
+#include "Peliculas.hpp"
+#include "Videos.hpp"
 #include "Series.hpp"
 #include "InvalidOptionException.hpp"
 

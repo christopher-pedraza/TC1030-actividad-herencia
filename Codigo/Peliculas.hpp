@@ -5,7 +5,7 @@ Peliculas.hpp
 *****************************************************/
 
 #ifndef Peliculas_hpp
-#define Peliculass_hpp
+#define Peliculas_hpp
 
 #include "Pelicula.hpp"
 #include <fstream>
