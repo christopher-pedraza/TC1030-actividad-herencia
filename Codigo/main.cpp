@@ -192,6 +192,7 @@ void menu() {
                 break;
             }          
             default: { // Ninguna de las anteriores
+                std::cout << std::endl << "Opcion invalida" << std::endl;
 				break;
 			}
         }
